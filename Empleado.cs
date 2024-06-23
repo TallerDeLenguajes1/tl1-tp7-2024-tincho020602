@@ -55,6 +55,33 @@ namespace EspacioEmpleados
             DateTime fechaActual = DateTime.Now;
             return jubilacion=(65 - (fechaActual.Year - FechaNacimiento.Year));
         }
+
+        public double CalcularSalario()
+        {
+            double salario;
+            double adicional=0;
+            int antiguedad=CalcularAntiguedad();
+
+            if (antiguedad<=20)
+            {
+                adicional=adicional+(SueldoBasico*0.01*antiguedad);
+            }else
+            {
+                adicional=adicional+(SueldoBasico*0.25);
+            }
+
+            if (Cargo.ToString()=="Ingeniero" || Cargo.ToString()=="Especialista")
+            {
+                adicional=adicional+(adicional*0.5);
+            }
+
+            if (EstadoCivil.ToString()=="C")
+            {
+                adicional=adicional+150000;
+            }
+
+            return salario=SueldoBasico+adicional;
+        }
     }
 
 }

@@ -9,11 +9,13 @@ empleado1.CalcularAntiguedad();
 */
 
 Empleado[] empleados = new Empleado[3];
-empleados[0] = new Empleado("Juan", "Perez", new DateTime(1985, 5, 20), 'S', new DateTime(2010, 6, 1), 30000, Cargos.Ingeniero);
-empleados[1] = new Empleado("Maria", "Gomez", new DateTime(1990, 3, 15), 'C', new DateTime(2015, 9, 1), 25000, Cargos.Administrativo);
+empleados[0] = new Empleado("Juan", "Perez", new DateTime(1985, 5, 20), 'C', new DateTime(2009, 6, 1), 650000, Cargos.Ingeniero);
 empleados[2] = new Empleado("Carlos", "Lopez", new DateTime(1982, 8, 10), 'S', new DateTime(2008, 1, 10), 35000, Cargos.Especialista);
+empleados[1] = new Empleado("Maria", "Gomez", new DateTime(1990, 3, 15), 'C', new DateTime(2015, 9, 1), 25000, Cargos.Administrativo);
 
-
+double montoTotal=0;
+int proxJubilar=100;
+int idEmpleado=0;
 for (int i = 0; i < 3; i++)
 {
     Console.WriteLine($"*********Empleado: {i+1}*********");
@@ -21,10 +23,23 @@ for (int i = 0; i < 3; i++)
     Console.WriteLine($"Nombre: {empleados[i].Nombre }");
     Console.WriteLine($"Edad: {empleados[i].CalcularEdad()}");
     Console.WriteLine($"Estado Civil: {empleados[i].EstadoCivil}");
+    Console.WriteLine($"Anio de Ingreso: {empleados[i].FechaIngreso.ToString("dd/MM/yyyy")}");
     Console.WriteLine($"Sueldo Basico: ${empleados[i].SueldoBasico}");
     Console.WriteLine($"Cargo: {empleados[i].Cargo}");
+    Console.WriteLine($"Antiguedad: {empleados[i].CalcularAntiguedad()}");
+    Console.WriteLine($"Anios restante para jubilacion: {empleados[i].CalcularJubilacion()}");
+    if (proxJubilar>empleados[i].CalcularJubilacion())
+    {
+        proxJubilar=proxJubilar=empleados[i].CalcularJubilacion();
+        idEmpleado=i;
+    }
+    Console.WriteLine($"Salario: ${empleados[i].CalcularSalario()}");
+    montoTotal=montoTotal+empleados[i].CalcularSalario();
     Console.WriteLine("");
 }
+    Console.WriteLine($"Monto total en concepto de salarios: ${montoTotal}");
+    Console.WriteLine($"El empleado mas proximo a jubilarse es: {empleados[idEmpleado].Nombre}");
+    
  
 
 /*using EspacioCalculadora;
