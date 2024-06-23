@@ -1,4 +1,19 @@
-﻿using EspacioCalculadora;
+﻿using EspacioEmpleados;
+
+DateTime fechaCumple = new DateTime(2002,6,2);
+DateTime fechaIngreso = new DateTime(2020,7,19);
+
+Empleado empleado1 = new Empleado("Martin", "Ibarra", fechaCumple,'c',fechaIngreso, 700000, Cargos.Administrativo);
+Console.WriteLine(empleado1);
+empleado1.CalcularAntiguedad();
+
+Empleado[] empleados = new Empleado[3];
+empleados[0] = new Empleado("Juan", "Perez", new DateTime(1985, 5, 20), 'S', new DateTime(2010, 6, 1), 30000, Cargos.Ingeniero);
+empleados[1] = new Empleado("Maria", "Gomez", new DateTime(1990, 3, 15), 'C', new DateTime(2015, 9, 1), 25000, Cargos.Administrativo);
+empleados[2] = new Empleado("Carlos", "Lopez", new DateTime(1982, 8, 10), 'S', new DateTime(2008, 1, 10), 35000, Cargos.Especialista);
+
+
+/*using EspacioCalculadora;
 
 Calculadora calc = new Calculadora();
 int opcion = 0;
@@ -56,5 +71,4 @@ do
     }
 
 } while (opcion != 0);
-
-
+*/
