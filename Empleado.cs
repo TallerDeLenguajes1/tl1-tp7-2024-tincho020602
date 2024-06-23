@@ -33,21 +33,27 @@ namespace EspacioEmpleados
         }
 
         //Metodos
-        public void CalcularAntiguedad()
+        public int CalcularAntiguedad()
         {
+            int antiguedad;
             //Obtengo la fecha actual
-            DateTime fechaActual = DateTime.Now;
-            Console.WriteLine(fechaActual.Year - FechaIngreso.Year);
+            DateTime fechaActual = DateTime.Now;//datetime.now me da la fecha actual
+            return antiguedad=(fechaActual.Year - FechaIngreso.Year);
         }
 
-        public void CalcularEdad(){
+        public int CalcularEdad()
+        {
+            //obtengo la edad del empleado
+            int edad;
             DateTime fechaActual = DateTime.Now;
-            Console.WriteLine(fechaActual.Year - FechaNacimiento.Year);
+           return edad=(fechaActual.Year - FechaNacimiento.Year);
         }
 
-        public void CalcularJubilacion(){
+        public int CalcularJubilacion()
+        {
+            int jubilacion;
             DateTime fechaActual = DateTime.Now;
-            Console.WriteLine(65 - (fechaActual.Year - FechaNacimiento.Year));
+            return jubilacion=(65 - (fechaActual.Year - FechaNacimiento.Year));
         }
     }
 
